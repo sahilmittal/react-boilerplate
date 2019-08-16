@@ -4,45 +4,48 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {Dimmer, Loader} from 'semantic-ui-react';
 
-import { testAction } from '../../modules/page';
-import Loader from '../../components/loader';
+import {testAction} from '../../modules/page';
 
 const propTypes = {
   testAction: PropTypes.func.isRequired,
-  data: PropTypes.array
-}
+  data: PropTypes.array,
+};
 
 class Page extends React.Component {
+  state = {};
 
-  state = {
-  }
+  componentDidMount() {}
 
-  componentDidMount() {
-  }
-
-  render () {
+  render() {
     return (
       <div>
-        <Loader />
+        <Dimmer active inverted>
+          <Loader inverted>Loading</Loader>
+        </Dimmer>
       </div>
-    )
+    );
   }
-} 
+}
 
 const mapStateToProps = state => ({
-  data: state.data
-})
+  data: state.data,
+});
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  testAction
-}, dispatch)
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      testAction,
+    },
+    dispatch,
+  );
 
 Page.propTypes = propTypes;
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Page);

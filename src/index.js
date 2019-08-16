@@ -1,12 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { ConnectedRouter } from "connected-react-router";
-import configureStore, { history } from "./store";
-import App from "./containers/app";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import {ConnectedRouter} from 'connected-react-router';
+import configureStore, {history} from './store';
+import App from './containers/app';
 
-import "./styles/common.scss";
-import 'normalize.css'
+import 'normalize.css';
+import 'semantic-ui-css/semantic.min.css';
+import './styles/common.scss';
 
 const store = configureStore();
 
@@ -18,5 +19,5 @@ ReactDOM.render(
       </div>
     </ConnectedRouter>
   </Provider>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );

@@ -2,8 +2,8 @@
  *  Model: 'Page'
  */
 
-export default class Page { 
+export default class Page {
   constructor(id) {
-    this.id = id
+    this.id = id;
   }
 }

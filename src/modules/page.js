@@ -2,44 +2,44 @@
  *  Reducer: 'page'
  */
 
-import axios from 'axios'
+import axios from 'axios';
 
-export const SUCCESS = 'PAGE/SUCCESS'
-export const FAILED = 'PAGE/FAILED'
+export const SUCCESS = 'PAGE/SUCCESS';
+export const FAILED = 'PAGE/FAILED';
 
 const initialState = {
-  data: null
-}
+  data: null,
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
-
     case SUCCESS:
-      return { ...state, data: action.data }
+      return {...state, data: action.data};
 
     case FAILED:
-      return { ...state }
+      return {...state};
 
     default:
-      return state
+      return state;
   }
-}
+};
 
 const actions = {
-  success: (data) => ({ type: SUCCESS, data }),
-  error: () => ({ type: FAILED })
-}
+  success: data => ({type: SUCCESS, data}),
+  error: () => ({type: FAILED}),
+};
 
 /**
  *  Action: 'testAction'
  */
 export const testAction = () => {
   return dispatch => {
-    return axios.post('/test').then(
-      res => dispatch(actions.success(1)),
-      err => dispatch(actions.error())
-    ).catch(
-      err => dispatch(actions.error())
-    )
-  }
-}
+    return axios
+      .post('/test')
+      .then(
+        res => dispatch(actions.success(1)),
+        err => dispatch(actions.error()),
+      )
+      .catch(err => dispatch(actions.error()));
+  };
+};
