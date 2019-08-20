@@ -25,9 +25,9 @@
     "predeploy:stg": "REACT_APP_STAGE=staging npm run build",
     "deploy:stg": "aws s3 sync build/ s3://YOUR_DEV_S3_DEPLOY_BUCKET_NAME",
     "postdeploy:stg": "aws cloudfront create-invalidation --distribution-id YOUR_DEV_CF_DISTRIBUTION_ID --paths '/*' && aws cloudfront create-invalidation --distribution-id YOUR_DEV_WWW_CF_DISTRIBUTION_ID --paths '/*'",
-    "predeploy:prod": "REACT_APP_STAGE=production npm run build",
+    "predeploy:prd": "REACT_APP_STAGE=production npm run build",
     "deploy:prod": "aws s3 sync build/ s3://YOUR_PROD_S3_DEPLOY_BUCKET_NAME",
-    "postdeploy:prod": "aws cloudfront create-invalidation --distribution-id YOUR_PROD_CF_DISTRIBUTION_ID --paths '/*' && aws cloudfront create-invalidation --distribution-id YOUR_PROD_WWW_CF_DISTRIBUTION_ID --paths '/*'",
+    "postdeploy:prd": "aws cloudfront create-invalidation --distribution-id YOUR_PROD_CF_DISTRIBUTION_ID --paths '/*' && aws cloudfront create-invalidation --distribution-id YOUR_PROD_WWW_CF_DISTRIBUTION_ID --paths '/*'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
